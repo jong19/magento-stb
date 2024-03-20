@@ -1,4 +1,5 @@
 import { expect, type Locator, type  Page } from "@playwright/test";
+import { Keyboard } from "@playwright/test";
 
 export class LoginPage{
 
@@ -6,22 +7,28 @@ export class LoginPage{
     readonly emailField : Locator;
     readonly passwordField : Locator;
     readonly signinButton : Locator;
-    readonly whatsNewLink : Locator;
+    readonly dropdown : Locator;
+   // readonly whatsNewLink : Locator;
+
 
 
     constructor(loginPage : Page){
         this.loginPage = loginPage;
+
         this.emailField = loginPage.getByLabel('Email', { exact: true });
         this.passwordField = loginPage.getByLabel('Password');
         this.signinButton = loginPage.getByRole('button', { name: 'Sign In' });
-        this.whatsNewLink = loginPage.getByRole('menuitem', { name: 'What\'s New' });
 
 
+       // this.whatsNewLink = loginPage.getByRole('menuitem', { name: 'What\'s New' });
+        this.dropdown = loginPage.locator('button').filter({ hasText: 'Change' });
+
+
+        
     }
 
-    async doLogin(email : string, password : string){
+    async login(email : string, password : string){
 
-        await this.emailField.click
         await this.emailField.fill(email);
 
         await this.passwordField.fill(password);
@@ -31,12 +38,10 @@ export class LoginPage{
   
     }
 
-    async toHome(){
-        await expect(this.whatsNewLink).toBeVisible();
-        await this.loginPage.waitForTimeout(3000);
+    async isLoggedIn(){
+        await expect(this.loginPage).toHaveTitle("Home Page");
+       
     }
-
-
 
 
 
