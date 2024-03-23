@@ -32,16 +32,13 @@ test.describe('User login', async() => {
         await lip.login("playwright@yopmail.com", "${Playwright1234}");
         await lip.isLoggedIn();
 
-        // Home Page
         await hp.logout();
         await hp.isLoggedOut();
 
 
-
-
- 
-
       });
+
+      
 
       test.skip('Login with not existing email', async({page}) => {
         const lp = new LandingPage(page)
@@ -78,6 +75,18 @@ test.describe('User login', async() => {
  
 
       });
+});
+
+
+test.describe('Product Listing', async() => {
+  test('Go to Product Listing', async({page}) => {
+    const hp = new HomePage(page);
+ 
+    await hp.toProductListing()
+
+  });
+  
+
 });
 
 
