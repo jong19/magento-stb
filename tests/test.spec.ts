@@ -82,7 +82,7 @@ test.describe('Product Listing', async() => {
   test('Go to Product Listing', async({page}) => {
     const hp = new HomePage(page);
  
-    await hp.toProductListing()
+    await hp.toProductListingPage()
 
   });
   

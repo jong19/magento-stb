@@ -31,7 +31,7 @@ export class HomePage{
      
     }
 
-    async toProductListing(){
+    async toProductListingPage(){
 
         await expect(this.menuMen).toContainText('Men');
         await this.menuMen.hover();
