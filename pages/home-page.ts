@@ -46,7 +46,7 @@ export class HomePage{
 
         // await this.page.waitForLoadState();
 
-        await expect(this.page).toHaveURL('/men/tops-men/jackets-men.html');
+        await expect(this.page).toHaveURL('https://magento.softwaretestingboard.com/men/tops-men/jackets-men.html');
 
 
 
