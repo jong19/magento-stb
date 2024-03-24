@@ -44,17 +44,10 @@ export class HomePage{
 
         await (this.menuJackets).click();
 
-        // await this.page.waitForLoadState();
+    }
 
+    async isInProductListing(){
         await expect(this.page).toHaveURL('https://magento.softwaretestingboard.com/men/tops-men/jackets-men.html');
-
-
-
-
-
-
-
-
 
     }
 
