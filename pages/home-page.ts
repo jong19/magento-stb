@@ -9,47 +9,73 @@ export class HomePage{
     readonly signoutLink : Locator;
 
     readonly menuMen : Locator;
-    readonly menuTops : Locator;
-    readonly menuJackets : Locator;
+    readonly menuMenTops : Locator;
+    readonly menuMenJackets : Locator;
+
+    readonly menuWomen : Locator;
+    readonly menuWomenTops : Locator;
+    readonly menuWomenJackets : Locator;
     
     
     constructor(page : Page){
 
         this.page = page;
 
-        // //this.menuMen = page.getByRole("menuitem", {name : ' Men'});
-        // this.menuTops = page.getByRole("menuitem", {name : ' Tops'});
-        // this.menuJackets = page.getByRole("menuitem", {name : 'Jackets'});
 
         this.menuMen = page.locator('#ui-id-5')
-        this.menuTops = page.locator('#ui-id-17')
-        this.menuJackets = page.locator('#ui-id-19')
+        this.menuMenTops = page.locator('#ui-id-17')
+        this.menuMenJackets = page.locator('#ui-id-19')
+
+        this.menuWomen = page.locator('#ui-id-4')
+        this.menuWomenTops = page.locator('#ui-id-9')
+        this.menuWomenJackets = page.locator('#ui-id-11')
 
 
         this.dropdown = page.getByRole('banner').locator('button').filter({ hasText: 'Change' });
         this.signoutLink = page.getByRole('link', { name: 'Sign Out' });
      
     }
-
-    async toProductListingPage(){
+    
+    async toProductListingPage1(){
 
         await expect(this.menuMen).toContainText('Men');
         await this.menuMen.hover();
 
-        await expect(this.menuTops).toContainText('Tops');
-        await (this.menuTops).hover();
+        await expect(this.menuMenTops).toContainText('Tops');
+        await (this.menuMenTops).hover();
 
-        await expect(this.menuJackets).toContainText('Jackets')
-        await (this.menuJackets).hover();
+        await expect(this.menuMenJackets).toContainText('Jackets')
+        await (this.menuMenJackets).hover();
 
-        await (this.menuJackets).click();
+        await (this.menuMenJackets).click();
 
     }
 
-    async isInProductListing(){
+    async isInProductListing1(){
         await expect(this.page).toHaveURL('https://magento.softwaretestingboard.com/men/tops-men/jackets-men.html');
 
     }
+
+    async toProductListingPage2(){
+
+        await expect(this.menuWomen).toContainText('Women');
+        await this.menuWomen.hover();
+
+        await expect(this.menuWomenTops).toContainText('Tops');
+        await (this.menuWomenTops).hover();
+
+        await expect(this.menuWomenJackets).toContainText('Jackets')
+        await (this.menuWomenJackets).hover();
+
+        await (this.menuWomenJackets).click();
+
+    }
+
+    async isInProductListing2(){
+        await expect(this.page).toHaveURL('https://magento.softwaretestingboard.com/women/tops-women/jackets-women.html');
+
+    }
+
 
     async logout(){
         await this.page.waitForLoadState();

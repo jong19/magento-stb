@@ -30,7 +30,7 @@ test.describe('User login', async() => {
 
 
 test.describe('Product Listing', async() => {
-  test('Go to Product Listing', async({landingPageFixture, loginPageFixture, homePageFixture}) => {
+  test.only('Go to Product Listing', async({landingPageFixture, loginPageFixture, homePageFixture, listingPageFixture, listingDetailPageFixture, cartPageFixture}) => {
     
     // Landing page
     await landingPageFixture.isInLandingPage()
@@ -41,9 +41,21 @@ test.describe('Product Listing', async() => {
     await loginPageFixture.isLoggedIn()
    
     // Home page
-    await homePageFixture.toProductListingPage()
-    await homePageFixture.isInProductListing()
+    await homePageFixture.toProductListingPage1()
+    await homePageFixture.isInProductListing1()
 
+    // Product Listing
+    await listingPageFixture.selectProduct1()
+
+    // Add to Cart
+    await listingDetailPageFixture.addToCartProduct1()
+    await cartPageFixture.verifyAddedProduct()
+
+
+
+    // await homePageFixture.toProductListingPage2()
+    // await homePageFixture.isInProductListing2()
+    // await listingPageFixture.selectProduct2()
 
   });
   

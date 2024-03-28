@@ -4,11 +4,17 @@ import { HomePage } from "../home-page"
 import { defineConfig } from "@playwright/test"
 
 import { test as base } from "@playwright/test"
+import { ListingPage } from "../listing-page"
+import { ListingDetailPage } from "../listing-detail-page"
+import { CartPage } from "../cart-page"
 
 type TestFixtures = {
-    landingPageFixture : LandingPage
-    loginPageFixture : LoginPage;
-    homePageFixture : HomePage;
+   landingPageFixture : LandingPage
+   loginPageFixture : LoginPage;
+   homePageFixture : HomePage;
+   listingPageFixture : ListingPage
+   listingDetailPageFixture : ListingDetailPage
+   cartPageFixture : CartPage
 }
 
 
@@ -29,10 +35,24 @@ export const test = base.extend<TestFixtures>({
     homePageFixture : async ({page}, use) => {
         const hp = new HomePage(page)
         await use(hp);
+    },
 
+    listingPageFixture : async ({page}, use) => {
+        const lisp = new ListingPage(page)
+        await use(lisp);
+    },
 
+    listingDetailPageFixture : async ({page}, use) => {
+        const lidp = new ListingDetailPage(page)
+        await use(lidp);
+    },
 
+    cartPageFixture : async ({page}, use) => {
+        const cp = new CartPage(page)
+        await use(cp);
     }
+
+
 
 
 })
