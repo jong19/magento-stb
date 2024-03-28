@@ -30,7 +30,7 @@ test.describe('User login', async() => {
 
 
 test.describe('Product Listing', async() => {
-  test.only('Go to Product Listing', async({landingPageFixture, loginPageFixture, homePageFixture, listingPageFixture, listingDetailPageFixture, cartPageFixture}) => {
+  test('Go to Product Listing', async({landingPageFixture, loginPageFixture, homePageFixture, listingPageFixture, listingDetailPageFixture, cartPageFixture}) => {
     
     // Landing page
     await landingPageFixture.isInLandingPage()
