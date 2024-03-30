@@ -30,7 +30,7 @@ test.describe('User login', async() => {
 
 
 test.describe('Product Listing', async() => {
-  test('Go to Product Listing', async({landingPageFixture, loginPageFixture, homePageFixture, listingPageFixture, listingDetailPageFixture, cartPageFixture}) => {
+  test('Add To Cart', async({landingPageFixture, loginPageFixture, homePageFixture, listingPageFixture, listingDetailPageFixture, cartPageFixture}) => {
     
     // Landing page
     await landingPageFixture.isInLandingPage()
@@ -40,22 +40,19 @@ test.describe('Product Listing', async() => {
     await loginPageFixture.login("playwright@yopmail.com", "${Playwright1234}");
     await loginPageFixture.isLoggedIn()
    
-    // Home page
+    // Add 1st product to cart cart
     await homePageFixture.toProductListingPage1()
     await homePageFixture.isInProductListing1()
-
-    // Product Listing
     await listingPageFixture.selectProduct1()
-
-    // Add to Cart
     await listingDetailPageFixture.addToCartProduct1()
-    await cartPageFixture.verifyAddedProduct()
+    await cartPageFixture.verifyAddedProduct1()
 
-
-
-    // await homePageFixture.toProductListingPage2()
-    // await homePageFixture.isInProductListing2()
-    // await listingPageFixture.selectProduct2()
+   // Add 2nd product to cart
+   await homePageFixture.toProductListingPage2()
+    await homePageFixture.isInProductListing2()
+    await listingPageFixture.selectProduct2()
+    await listingDetailPageFixture.addToCartProduct2()
+    await cartPageFixture.verifyAddedProduct2()
 
   });
   

@@ -9,6 +9,10 @@ export class ListingDetailPage{
     readonly colorPicker : Locator;
     readonly addToCartBtn : Locator
 
+    readonly sizeBtn2 : Locator;
+    readonly colorPicker2 : Locator;
+    readonly addToCartBtn2 : Locator
+
     readonly cartIcon : Locator
     readonly cartListing : Locator
 
@@ -24,6 +28,10 @@ export class ListingDetailPage{
         this.sizeBtn = page.locator('#option-label-size-143-item-169')
         this.colorPicker = page.locator('#option-label-color-93-item-49')
         this.addToCartBtn = page.locator('#product-addtocart-button')
+
+        this.sizeBtn2 = page.locator('#option-label-size-143-item-167')
+        this.colorPicker2 = page.locator('#option-label-color-93-item-57')
+        this.addToCartBtn2 = page.locator('#product-addtocart-button')
 
         this.addCartSuccessMsg = page.getByRole('link', { name: 'shopping cart' })
 
@@ -46,14 +54,26 @@ export class ListingDetailPage{
        await this.addCartSuccessMsg.click()
 
        await expect(this.page).toHaveTitle('Shopping Cart')
-
-
-
-
-       
-
-        
+  
     }
+
+    async addToCartProduct2(){
+
+        await this.sizeBtn.click()
+        await this.colorPicker.click()
+        await this.addToCartBtn.click()
+ 
+        this.page.waitForLoadState()
+ 
+      
+        
+        await expect(this.addCartSuccessMsg).toBeVisible()
+        await this.addCartSuccessMsg.click()
+ 
+        await expect(this.page).toHaveTitle('Shopping Cart')
+   
+     }
+ 
 
    
 
