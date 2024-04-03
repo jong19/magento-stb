@@ -5,39 +5,48 @@ export class CartPage{
 
     readonly page : Page;
 
-    readonly cartListItem : Locator;
+ 
     readonly product1 : Locator
     readonly product2 : Locator
 
-   
-  
+    readonly cartListItem : Locator;
 
+    readonly checkoutButton : Locator;
+
+   
     
     
     constructor(page : Page){
 
         this.page = page;
 
-        this.product1 = page.getByRole('cell', { name: 'Proteus Fitness Jackshirt' })
-        this.product2 = page.locator('#shopping-cart-table').getByText('Olivia 1/4 Zip Light Jacket')
-     
+        this.cartListItem = page.locator('#shopping-cart-table > tbody')
+        this.checkoutButton = page.getByRole('button', {name : 'Proceed to Checkout'})
+
     }
 
-    async verifyAddedProduct1(){
 
-        await expect(this.product1).toBeVisible()
+
+    async checkCartItems(){
+        await expect(this.cartListItem).toHaveCount(2);
+    }
+
+    async proceedToCheckout(){
+
+        await expect(async()=> {
+            await this.checkoutButton.click()
+            await expect(this.page).toHaveTitle('Checkout')
+
+        }).toPass()
+
+
 
         
+
+       
+
     }
-
-    async verifyAddedProduct2(){
-
-        await expect(this.product2).toBeVisible()
-
-        
-    }
-
-   
+s   
     
     
 

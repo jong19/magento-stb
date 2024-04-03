@@ -14,7 +14,7 @@ test.describe('User login', async() => {
       await landingPageFixture.isInLoginPage()
 
       // Login Page
-      await loginPageFixture.login("playwright@yopmail.com", "${Playwright1234}");
+      await loginPageFixture.login("playwright@yopmail.com", "Qwerty!23456");
       await loginPageFixture.isLoggedIn()
 
       // Home page
@@ -30,14 +30,14 @@ test.describe('User login', async() => {
 
 
 test.describe('Product Listing', async() => {
-  test('Add To Cart', async({landingPageFixture, loginPageFixture, homePageFixture, listingPageFixture, listingDetailPageFixture, cartPageFixture}) => {
+  test('Add To Cart', async({landingPageFixture, loginPageFixture, homePageFixture, listingPageFixture, listingDetailPageFixture, cartPageFixture, checkoutPageFixture}) => {
     
     // Landing page
     await landingPageFixture.isInLandingPage()
     await landingPageFixture.isInLoginPage()
 
     // Login Page
-    await loginPageFixture.login("playwright@yopmail.com", "${Playwright1234}");
+    await loginPageFixture.login("playwright@yopmail.com", "Qwerty!23456");
     await loginPageFixture.isLoggedIn()
    
     // Add 1st product to cart cart
@@ -45,14 +45,19 @@ test.describe('Product Listing', async() => {
     await homePageFixture.isInProductListing1()
     await listingPageFixture.selectProduct1()
     await listingDetailPageFixture.addToCartProduct1()
-    await cartPageFixture.verifyAddedProduct1()
 
-   // Add 2nd product to cart
-   await homePageFixture.toProductListingPage2()
+  //  // Add 2nd product to cart
+    await homePageFixture.toProductListingPage2()
     await homePageFixture.isInProductListing2()
     await listingPageFixture.selectProduct2()
     await listingDetailPageFixture.addToCartProduct2()
-    await cartPageFixture.verifyAddedProduct2()
+    await cartPageFixture.checkCartItems()
+    
+    await cartPageFixture.proceedToCheckout()
+
+
+  //   checkout
+    await checkoutPageFixture.addNewAddress()
 
   });
   

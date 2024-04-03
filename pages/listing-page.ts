@@ -7,17 +7,19 @@ export class ListingPage{
 
     readonly men_jacket_item1 : Locator;
     readonly women_jacket_item2 : Locator;
-  
 
-    
-    
+    readonly randomMen = Math.floor(Math.random()*10);
+    readonly randomWomen = Math.floor(Math.random()*10);
+
+
+  
     constructor(page : Page){
 
         this.page = page;
-
-        this.men_jacket_item1  = page.locator('#maincontent div').filter({ hasText: 'Proteus Fitness Jackshirt As' }).nth(3)
-        this.women_jacket_item2  = page.locator('#maincontent div').filter({ hasText: 'Olivia 1/4 Zip Light Jacket' }).nth(3)
-
+        this.men_jacket_item1 = page.locator('div.products.wrapper.grid.products-grid > ol > li').nth(this.randomMen)
+        this.women_jacket_item2 = page.locator('div.products.wrapper.grid.products-grid > ol > li').nth(this.randomWomen)
+        
+      
      
     }
 
@@ -26,7 +28,7 @@ export class ListingPage{
         await expect(this.men_jacket_item1).toBeVisible()
         await this.men_jacket_item1.hover()
         await this.men_jacket_item1.click()
-        await expect(this.page).toHaveTitle('Proteus Fitness Jackshirt')
+        console.log("MEN:> " + this.randomMen)
     }
 
     async selectProduct2(){
@@ -34,7 +36,9 @@ export class ListingPage{
         await expect(this.women_jacket_item2).toBeVisible()
         await this.women_jacket_item2.hover()
         await this.women_jacket_item2.click()
-        await expect(this.page).toHaveTitle('Olivia 1/4 Zip Light Jacket')
+        console.log("WOMEN:> " + this.randomWomen)
+
+       
     }
 
 

@@ -7,6 +7,7 @@ import { test as base } from "@playwright/test"
 import { ListingPage } from "../listing-page"
 import { ListingDetailPage } from "../listing-detail-page"
 import { CartPage } from "../cart-page"
+import { CheckoutPage } from "../checkout-page"
 
 type TestFixtures = {
    landingPageFixture : LandingPage
@@ -15,6 +16,7 @@ type TestFixtures = {
    listingPageFixture : ListingPage
    listingDetailPageFixture : ListingDetailPage
    cartPageFixture : CartPage
+   checkoutPageFixture : CheckoutPage
 }
 
 
@@ -50,6 +52,11 @@ export const test = base.extend<TestFixtures>({
     cartPageFixture : async ({page}, use) => {
         const cp = new CartPage(page)
         await use(cp);
+    },
+
+    checkoutPageFixture : async ({page}, use) => {
+        const chp = new CheckoutPage(page)
+        await use(chp);
     }
 
 

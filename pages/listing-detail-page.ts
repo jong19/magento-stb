@@ -17,6 +17,11 @@ export class ListingDetailPage{
     readonly cartListing : Locator
 
     readonly addCartSuccessMsg : Locator
+
+    readonly randomSize = Math.floor(Math.random()*4);
+    readonly randomColor = Math.floor(Math.random()*2);
+
+
   
 
     
@@ -25,13 +30,14 @@ export class ListingDetailPage{
 
         this.page = page;
 
-        this.sizeBtn = page.locator('#option-label-size-143-item-169')
-        this.colorPicker = page.locator('#option-label-color-93-item-49')
-        this.addToCartBtn = page.locator('#product-addtocart-button')
+    
+        this.sizeBtn = page.locator('div > div.swatch-attribute.size > div > div').nth(this.randomSize)
+        this.colorPicker = page.locator('div.swatch-attribute.color > div > div').nth(this.randomColor)
+        
+        this.sizeBtn2 = page.locator('div > div.swatch-attribute.size > div > div').nth(this.randomSize)
+        this.colorPicker2 = page.locator('div.swatch-attribute.color > div > div').nth(this.randomColor)
 
-        this.sizeBtn2 = page.locator('#option-label-size-143-item-167')
-        this.colorPicker2 = page.locator('#option-label-color-93-item-57')
-        this.addToCartBtn2 = page.locator('#product-addtocart-button')
+        this.addToCartBtn = page.locator('#product-addtocart-button')
 
         this.addCartSuccessMsg = page.getByRole('link', { name: 'shopping cart' })
 
