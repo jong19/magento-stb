@@ -18,8 +18,11 @@ export class ListingDetailPage{
 
     readonly addCartSuccessMsg : Locator
 
-    readonly randomSize = Math.floor(Math.random()*4);
-    readonly randomColor = Math.floor(Math.random()*2);
+    readonly randomSize_men = Math.floor(Math.random()*4);
+    readonly randomColor_men = Math.floor(Math.random()*2);
+
+    readonly randomSize_women = Math.floor(Math.random()*4);
+    readonly randomColor_women = Math.floor(Math.random()*2);
 
 
   
@@ -31,11 +34,11 @@ export class ListingDetailPage{
         this.page = page;
 
     
-        this.sizeBtn = page.locator('div > div.swatch-attribute.size > div > div').nth(this.randomSize)
-        this.colorPicker = page.locator('div.swatch-attribute.color > div > div').nth(this.randomColor)
+        this.sizeBtn = page.locator('div > div.swatch-attribute.size > div > div').nth(this.randomSize_men)
+        this.colorPicker = page.locator('div.swatch-attribute.color > div > div').nth(this.randomColor_men)
         
-        this.sizeBtn2 = page.locator('div > div.swatch-attribute.size > div > div').nth(this.randomSize)
-        this.colorPicker2 = page.locator('div.swatch-attribute.color > div > div').nth(this.randomColor)
+        this.sizeBtn2 = page.locator('div > div.swatch-attribute.size > div > div').nth(this.randomSize_women)
+        this.colorPicker2 = page.locator('div.swatch-attribute.color > div > div').nth(this.randomColor_women)
 
         this.addToCartBtn = page.locator('#product-addtocart-button')
 
@@ -52,10 +55,12 @@ export class ListingDetailPage{
        await this.colorPicker.click()
        await this.addToCartBtn.click()
 
+       console.log("Selected MEN size " + this.randomSize_men)
+       console.log("Selected MEN color " + this.randomColor_men)
+
+
        this.page.waitForLoadState()
 
-     
-       
        await expect(this.addCartSuccessMsg).toBeVisible()
        await this.addCartSuccessMsg.click()
 
@@ -65,9 +70,12 @@ export class ListingDetailPage{
 
     async addToCartProduct2(){
 
-        await this.sizeBtn.click()
-        await this.colorPicker.click()
+        await this.sizeBtn2.click()
+        await this.colorPicker2.click()
         await this.addToCartBtn.click()
+
+        console.log("Selected WOMEN size " + this.randomSize_women)
+        console.log("Selected WOMEN color " + this.randomColor_women)
  
         this.page.waitForLoadState()
  

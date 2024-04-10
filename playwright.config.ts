@@ -32,14 +32,24 @@ export default defineConfig({
     baseURL: 'https://magento.softwaretestingboard.com/',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: 'on',
+
+    screenshot : 'on',
+    video : 'on'
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
+      name : "setup",
+      testDir : "./",
+      testMatch : "global-setup.ts"
+    },
+
+    {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      dependencies: ['setup'],
+      use: { ...devices['Desktop Chrome'], storageState : "./LoginAuth.json"},
     },
 
     {
