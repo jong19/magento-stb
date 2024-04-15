@@ -33,7 +33,6 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
-
     screenshot : 'on',
     video : 'on'
   },
@@ -43,7 +42,17 @@ export default defineConfig({
     {
       name : "setup",
       testDir : "./",
-      testMatch : "global-setup.ts"
+      testMatch : "global-setup.ts",
+      teardown : "teardown"
+    },
+
+    {
+      name : "teardown",
+      testDir : "./",
+      testMatch : "global-teardown.ts",
+      use : {
+        storageState : "./LoginAuth.json"
+      }
     },
 
     {
@@ -52,15 +61,17 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'], storageState : "./LoginAuth.json"},
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   dependencies: ['setup'],
+    //   use: { ...devices['Desktop Firefox'], storageState : "./LoginAuth.json" },
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   dependencies: ['setup'],
+    //   use: { ...devices['Desktop Safari'], storageState : "./LoginAuth.json" },
+    // },
 
     /* Test against mobile viewports. */
     // {

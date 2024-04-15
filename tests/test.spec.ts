@@ -20,9 +20,18 @@ test.describe('Product and Cart Listing', async() => {
     await homePageFixture.isInProductListing2()
     await listingPageFixture.selectProduct2()
     await listingDetailPageFixture.addToCartProduct2()
-   // await cartPageFixture.checkCartItems() -- enable function when recording demo will be finalized
+    
+   // await cartPageFixture.checkCartItemsCount() - disable for now
     
     });
+
+    test.skip('Delete Cart Items', async({landingPageFixture,loginPageFixture, homePageFixture,cartPageFixture}) => {
+      await cartPageFixture.clearCartItems();
+
+   
+    })
+
+
 
   
 });
@@ -46,9 +55,6 @@ test.describe('Checkout', async() => {
     await checkoutPageFixture.verifyShippingAddress()
     await checkoutPageFixture.finishCheckout()
 
-    await homePageFixture.logout()
-    await homePageFixture.isLoggedOut()
-    
     
       
   });

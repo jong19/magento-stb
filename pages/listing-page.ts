@@ -13,8 +13,6 @@ export class ListingPage{
 
    
 
-
-  
     constructor(page : Page){
 
         this.page = page;
@@ -36,6 +34,7 @@ export class ListingPage{
         await this.men_jacket_item1.hover()
         await this.men_jacket_item1.click()
         console.log(" MEN nth product:> " + this.randomMen + " | " + prod1)
+
         
     }
 

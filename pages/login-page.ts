@@ -8,7 +8,6 @@ export class LoginPage{
     readonly passwordField : Locator;
     readonly signinButton : Locator;
     readonly dropdown : Locator;
-   // readonly whatsNewLink : Locator;
 
 
 
@@ -19,8 +18,6 @@ export class LoginPage{
         this.passwordField = loginPage.getByLabel('Password');
         this.signinButton = loginPage.getByRole('button', { name: 'Sign In' });
 
-
-       // this.whatsNewLink = loginPage.getByRole('menuitem', { name: 'What\'s New' });
         this.dropdown = loginPage.locator('button').filter({ hasText: 'Change' });
 
 

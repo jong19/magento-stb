@@ -72,9 +72,11 @@ export class CheckoutPage{
     async proceedToCheckout(){
 
         await this.page.goto('https://magento.softwaretestingboard.com/checkout/cart/')
-        await this.page.reload()
+        
+       
 
         await expect(async()=> {
+            await this.page.reload()
             await this.checkoutButton.click()
             await expect(this.page).toHaveTitle('Checkout')
 
