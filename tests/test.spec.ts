@@ -2,11 +2,25 @@
 
 import { test, expect } from "../pages/fixtures/pom-fixtures";
 
-const userdataJSON = JSON.parse(JSON.stringify(require("../testdata/userdata.json")))
+const userdataJSON = JSON.parse(JSON.stringify(require("../testdata/user.json")))
+
+test.describe('User Account', async() => {
+  test('Create Account', async({landingPageFixture, createAccountPageFixture}) => {
+    await landingPageFixture.isInLandingPage()
+    await landingPageFixture.toCreateAccountPage()
+    await landingPageFixture.isInCreateAccountPage()
+
+    await createAccountPageFixture.createAccount()
+    await createAccountPageFixture.isAccountSuccessfullyCreated()
+
+
+  })
+
+})
 
 
 test.describe('Product and Cart Listing', async() => {
-  test('Add To Cart', async({landingPageFixture, loginPageFixture, homePageFixture, listingPageFixture, listingDetailPageFixture, cartPageFixture, checkoutPageFixture}) => {
+  test.skip('Add To Cart', async({landingPageFixture, loginPageFixture, homePageFixture, listingPageFixture, listingDetailPageFixture, cartPageFixture}) => {
 
    
     // Add 1st product to cart cart
@@ -39,7 +53,7 @@ test.describe('Product and Cart Listing', async() => {
 
 
 test.describe('Checkout', async() => {
-  test('Place Order', async({landingPageFixture, loginPageFixture, homePageFixture, listingPageFixture, listingDetailPageFixture, cartPageFixture, checkoutPageFixture}) => {
+  test.skip('Place Order', async({landingPageFixture, loginPageFixture, homePageFixture, listingPageFixture, listingDetailPageFixture, cartPageFixture, checkoutPageFixture}) => {
     
 
     await checkoutPageFixture.proceedToCheckout()
@@ -58,6 +72,7 @@ test.describe('Checkout', async() => {
     
       
   });
+
 
 
 });

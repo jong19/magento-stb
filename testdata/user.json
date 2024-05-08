@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "firstname": "Briana",
+      "lastname": "Hills",
+      "email": "khevenqa4@yopmail.com",
+      "password": "eRSXTEeJkDR8ARj"
+    },
+    {
+      "firstname": "Brandyn",
+      "lastname": "Ryan",
+      "email": "khevenqa6@yopmail.com",
+      "password": "qu12LdbH6PPw96K"
+    },
+    {
+      "firstname": "John",
+      "lastname": "McLaughlin",
+      "email": "khevenqa7@yopmail.com",
+      "password": "nbyMO9oEKDdThU6"
+    }
+  ]
+}

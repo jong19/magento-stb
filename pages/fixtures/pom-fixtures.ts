@@ -1,5 +1,6 @@
 import { LoginPage } from "../login-page"
 import { LandingPage } from "../landing-page"
+import { CreateAccountPage } from "../create-account-page"
 import { HomePage } from "../home-page"
 import { defineConfig } from "@playwright/test"
 
@@ -12,6 +13,7 @@ import { CheckoutPage } from "../checkout-page"
 type TestFixtures = {
    landingPageFixture : LandingPage
    loginPageFixture : LoginPage;
+   createAccountPageFixture : CreateAccountPage;
    homePageFixture : HomePage;
    listingPageFixture : ListingPage
    listingDetailPageFixture : ListingDetailPage
@@ -31,6 +33,12 @@ export const test = base.extend<TestFixtures>({
     loginPageFixture : async ({page}, use) => {
         const lip = new LoginPage(page)
         await use(lip)
+
+    },
+
+    createAccountPageFixture : async ({page}, use) => {
+        const cap = new CreateAccountPage(page)
+        await use(cap)
 
     },
 
