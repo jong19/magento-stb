@@ -3,6 +3,11 @@ import { log } from "console";
 import exp from "constants";
 import { read } from "fs";
 
+import {faker} from '@faker-js/faker'
+import { format } from "path";
+
+
+
 export class CheckoutPage{
 
     readonly page : Page;
@@ -84,12 +89,21 @@ export class CheckoutPage{
     }
  
 
-    async addShippingAddress(street : string, 
-            city :  string, 
-            state : string,
-            zip : string, 
-            country : string, 
-            phone : string){
+    async addShippingAddress(){
+
+        const userJson = JSON.parse(JSON.stringify(require("../testdata/user.json")))
+
+
+        const street = userJson.users[0].street
+        const city = userJson.users[0].city
+        const state = userJson.users[0].state
+        const zip = userJson.users[0].zip
+        const country = userJson.users[0].country
+        const phone = userJson.users[0].phone
+
+
+        //  const street1 = faker.location.street()
+
 
 
         // if(expect(await this.newAddressButton.isVisible())){

@@ -1,22 +1,16 @@
 {
   "users": [
     {
-      "firstname": "Briana",
-      "lastname": "Hills",
-      "email": "khevenqa4@yopmail.com",
-      "password": "eRSXTEeJkDR8ARj"
-    },
-    {
-      "firstname": "Brandyn",
-      "lastname": "Ryan",
-      "email": "khevenqa6@yopmail.com",
-      "password": "qu12LdbH6PPw96K"
-    },
-    {
-      "firstname": "John",
-      "lastname": "McLaughlin",
-      "email": "khevenqa7@yopmail.com",
-      "password": "nbyMO9oEKDdThU6"
+      "firstname": "Kraig",
+      "lastname": "Pagac",
+      "email": "juneqa103@yopmail.com",
+      "password": "M1LXu7ARAkvCbAN",
+      "street": "600 N 1st Ave",
+      "city": "Minneapolis",
+      "state": "Minnesota",
+      "zip": "55403",
+      "country": "United States",
+      "phone": "(555) 555-1234"
     }
   ]
 }

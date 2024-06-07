@@ -90,7 +90,14 @@ export class CreateAccountPage{
             "firstname" : fname,
             "lastname" : lname,
             "email" : email,
-            "password" : pword
+            "password" : pword,
+            "street" : "600 N 1st Ave",
+            "city" : "Minneapolis",
+            "state" : "Minnesota",
+            "zip" : "55403",
+            "country" : "United States",
+            "phone" : "(555) 555-1234"
+
         }
 
         usersArray.users.push(newUser)

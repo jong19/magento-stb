@@ -41,7 +41,7 @@ export default defineConfig({
   projects: [
     {
       name : "setup",
-      testDir : "./",
+      testDir : "./tests/serial",
       testMatch : "global-setup.ts",
       teardown : "teardown"
     },

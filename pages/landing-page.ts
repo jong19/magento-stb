@@ -37,7 +37,7 @@ export class LandingPage{
     }
 
     async isInCreateAccountPage(){
-        // await this.landingPage.goto('https://magento.softwaretestingboard.com/customer/account/create/')
+        await this.landingPage.goto('https://magento.softwaretestingboard.com/customer/account/create/')
         await expect(this.landingPage).toHaveTitle('Create New Customer Account')
 
     }
