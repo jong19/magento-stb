@@ -8,6 +8,7 @@ export class ListingPage{
     readonly men_jacket_item1 : Locator;
     readonly women_jacket_item2 : Locator;
 
+
     readonly randomMen = Math.floor(Math.random()*10);
     readonly randomWomen = Math.floor(Math.random()*10);
 
@@ -29,14 +30,17 @@ export class ListingPage{
     async selectProduct1() {
 
         const prod1 = await this.men_jacket_item1.textContent()
+       
 
         await expect(this.men_jacket_item1).toBeVisible()
         await this.men_jacket_item1.hover()
         await this.men_jacket_item1.click()
         console.log(" MEN nth product:> " + this.randomMen + " | " + prod1)
 
+
         
     }
+
 
     async selectProduct2(){
 

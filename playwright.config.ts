@@ -55,6 +55,7 @@ export default defineConfig({
       }
     },
 
+  
     {
       name: 'chromium',
       dependencies: ['setup'],

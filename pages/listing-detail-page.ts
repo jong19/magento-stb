@@ -9,6 +9,9 @@ export class ListingDetailPage{
     readonly colorPicker : Locator;
     readonly addToCartBtn : Locator
 
+    readonly addToWishListBtn : Locator
+    readonly addToWishListMsgLink : Locator
+
     readonly sizeBtn2 : Locator;
     readonly colorPicker2 : Locator;
     readonly addToCartBtn2 : Locator
@@ -41,8 +44,12 @@ export class ListingDetailPage{
         this.colorPicker2 = page.locator('div.swatch-attribute.color > div > div').nth(this.randomColor_women)
 
         this.addToCartBtn = page.locator('#product-addtocart-button')
-
         this.addCartSuccessMsg = page.getByRole('link', { name: 'shopping cart' })
+
+        this.addToWishListBtn = page.getByRole('link', {name : 'Add to Wish List'})
+        this.addToWishListMsgLink = page.getByRole('link', {name : 'here'})
+
+
 
       
 
@@ -86,6 +93,20 @@ export class ListingDetailPage{
  
         await expect(this.page).toHaveTitle('Shopping Cart')
    
+     }
+
+     async addItemToWishList(){
+        await expect(this.addToWishListBtn).toBeVisible()
+
+        await this.addToWishListBtn.click()
+
+        await this.page.reload()
+
+        await expect(this.addToWishListMsgLink).toBeVisible()
+
+
+
+        
      }
  
 

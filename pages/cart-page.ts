@@ -26,7 +26,7 @@ export class CartPage{
         this.cartRowItem = page.locator('#shopping-cart-table > tbody').filter({has : this.page.locator('.item-actions')})
 
 
-         this.deleteItemButton = page.locator('#shopping-cart-table > tbody > tr.item-actions > td > div > a.action.action-delete')
+        this.deleteItemButton = page.locator('#shopping-cart-table > tbody > tr.item-actions > td > div > a.action.action-delete')
 
     }
 

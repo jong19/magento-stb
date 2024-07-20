@@ -9,6 +9,7 @@ import { ListingPage } from "../listing-page"
 import { ListingDetailPage } from "../listing-detail-page"
 import { CartPage } from "../cart-page"
 import { CheckoutPage } from "../checkout-page"
+import { WishlistPage } from "../wishlist-page"
 
 type TestFixtures = {
    landingPageFixture : LandingPage
@@ -19,6 +20,7 @@ type TestFixtures = {
    listingDetailPageFixture : ListingDetailPage
    cartPageFixture : CartPage
    checkoutPageFixture : CheckoutPage
+   wishListPageFixture : WishlistPage
 }
 
 
@@ -65,6 +67,11 @@ export const test = base.extend<TestFixtures>({
     checkoutPageFixture : async ({page}, use) => {
         const chp = new CheckoutPage(page)
         await use(chp);
+    },
+
+    wishListPageFixture : async ({page}, use) => {
+        const wlp = new WishlistPage(page)
+        await use (wlp)
     }
 
 

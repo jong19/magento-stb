@@ -7,6 +7,7 @@ export class HomePage{
 
     readonly dropdown : Locator;
     readonly signoutLink : Locator;
+    readonly myWishListLink : Locator
 
     readonly menuMen : Locator;
     readonly menuMenTops : Locator;
@@ -33,6 +34,8 @@ export class HomePage{
 
         this.dropdown = page.getByRole('banner').locator('button').filter({ hasText: 'Change' });
         this.signoutLink = page.getByRole('link', { name: 'Sign Out' });
+
+        this.myWishListLink = page.getByRole('link', {name : 'My Wish List'})
      
     }
     
@@ -93,6 +96,22 @@ export class HomePage{
         await expect(this.page).toHaveTitle("Home Page");
 
     }
+
+    async toWishListPage(){
+        await this.page.waitForLoadState();
+
+        await expect(this.dropdown).toBeVisible();
+        await this.dropdown.click();
+
+        await expect(this.myWishListLink).toBeVisible()
+
+        await this.myWishListLink.click()
+
+    }
+
+    
+
+    
 
 
 
