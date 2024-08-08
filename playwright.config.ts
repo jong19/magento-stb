@@ -41,7 +41,7 @@ export default defineConfig({
   projects: [
     {
       name : "setup",
-      testDir : "./tests/serial",
+      testDir : "./",
       testMatch : "global-setup.ts",
       teardown : "teardown"
     },
@@ -55,11 +55,16 @@ export default defineConfig({
       }
     },
 
+   
   
     {
       name: 'chromium',
       dependencies: ['setup'],
-      use: { ...devices['Desktop Chrome'], storageState : "./LoginAuth.json"},
+      use: { 
+        ...devices['Desktop Chrome'], 
+        storageState : "./LoginAuth.json"
+      },
+
     },
 
     // {
@@ -70,7 +75,7 @@ export default defineConfig({
 
     // {
     //   name: 'webkit',
-    //   dependencies: ['setup'],
+    //   dependencies: ['setup2'],
     //   use: { ...devices['Desktop Safari'], storageState : "./LoginAuth.json" },
     // },
 

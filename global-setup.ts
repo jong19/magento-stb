@@ -1,9 +1,6 @@
 import { test, expect } from "./pages/fixtures/pom-fixtures";
 
-// const fs = require('fs')
 
-
-// const userdataJSON = JSON.parse(JSON.stringify(require("../magento-stb/testdata/user.json")))
 const userdataJSON = JSON.parse(JSON.stringify(require("../magento-stb/testdata/user.json")))
 
 
@@ -16,7 +13,7 @@ test.describe('Global Setup', async() => {
         await landingPageFixture.isInLoginPage()
   
         // Login Page
-        await loginPageFixture.login(userdataJSON.users[0].email, userdataJSON.users[0].password);
+        await loginPageFixture.login(userdataJSON.users[5].email, userdataJSON.users[5].password);
         await loginPageFixture.isLoggedIn()
   
         await page.context().storageState({path : "./LoginAuth.json"})

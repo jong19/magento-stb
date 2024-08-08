@@ -3,7 +3,6 @@
 import { test, expect } from "../../pages/fixtures/pom-fixtures";
 
 const userdataJSON = JSON.parse(JSON.stringify(require("../../testdata/sample.json")))
-// const userdataJSON = JSON.parse(JSON.stringify(require("../testdata/sample.json")))
 
 
 test.describe.configure({
@@ -31,13 +30,9 @@ test.describe('Product and Cart Listing', async() => {
    // await cartPageFixture.checkCartItemsCount() - disable for now
     
     });
+    
 
-    test.skip('Delete Cart Items', async({landingPageFixture,loginPageFixture, homePageFixture,cartPageFixture}) => {
-      await cartPageFixture.clearCartItems();
-
-   
-    })
-
+  
 
 
   
