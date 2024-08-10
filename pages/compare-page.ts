@@ -8,3 +8,5 @@ export class ComparePage{
 
 
 }
+
+// TA-09 comment
