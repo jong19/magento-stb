@@ -4,8 +4,6 @@ import { ListingPage } from './listing-page'
 export class ComparePage{
     readonly page : Page 
 
+}
 
-
-
-    
-
+// TA-09 comment
