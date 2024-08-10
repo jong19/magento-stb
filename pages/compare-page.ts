@@ -10,15 +10,11 @@ export class ComparePage{
     }
 
 
-    constructor(page : Page)
-    {
-        page = this.page
-    }
-
-    async funcA(){
-        await console.log("Commit2")
+    async funcResolvedA(){
+        
     }
 
 }
+
 
 
