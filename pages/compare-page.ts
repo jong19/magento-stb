@@ -4,6 +4,11 @@ import { ListingPage } from './listing-page'
 export class ComparePage{
     readonly page : Page 
 
+    constructor ( page : Page){
+        page = this.page
+
+    }
+
 
 
 
