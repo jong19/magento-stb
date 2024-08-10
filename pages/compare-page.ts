@@ -5,9 +5,6 @@ export class ComparePage{
     readonly page : Page 
 
 
-
-
-    
-
-
 }
+
+
