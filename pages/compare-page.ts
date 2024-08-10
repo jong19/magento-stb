@@ -10,9 +10,6 @@ export class ComparePage{
     }
 
 
-
-
-    
-
-
 }
+
+
